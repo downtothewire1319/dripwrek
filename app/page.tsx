@@ -53,8 +53,7 @@ export default function Homepage() {
             <div >
               <Link href={"/app"} className="flex items-center">
                 <div className='p-4 flex flex-col items-center'>
-                  {/* <Image src={'/driplogo.png'} alt='logo' width={100} height={100}
-                        className='w-full h-full' /> */}
+                  
                   <div className="relative w-20 h-20">
                     <Image
                       src="/driplogo.png"
@@ -70,7 +69,7 @@ export default function Homepage() {
 
                 <div className="flex items-center space-x-3">
 
-                  <span className="text-2xl font-bold text-white">AdCraft Pro</span>
+                  <span className="text-2xl font-bold text-white hidden md:block">AdCraft Pro</span>
                 </div>
               </Link>
 
@@ -109,13 +108,14 @@ export default function Homepage() {
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              Erstellen
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
-                Atemberaubende Werbespots
-              </span>
-              In Sekunden
-            </h1>
+         <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
+  Erstellen
+  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
+    Atemberaubende Werbespots
+  </span>
+  In Sekunden
+</h1>
+
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-white/80 mb-12 leading-relaxed max-w-3xl mx-auto">
