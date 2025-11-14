@@ -7,29 +7,30 @@ function AiToolsList() {
 
   const AiTools=[
     {
-      name:'AI Products Images',
-      desc:'Generate high-quality, professional product images instantly with AI',
-      bannerImage:'/product-image.png',
-      path:'/creative-ai-tools/product-images',
-    },
-      {
-      name:'AI Product Video',
-      desc:' Create engaging product showcase videos using AI',
-      bannerImage:'/product-video.png',
-      path:'/creative-ai-tools/product-videos',
-    },
-      {
-      name:'AI Products With Avatar',
-      desc:'Bring your products to life with AI avatars',
-      bannerImage:'/product-avatar.png',
-      path:'/creative-ai-tools/product-avatar',
-    },
+  name: 'KI-Produktbilder',
+  desc: 'Erstellen Sie sofort hochwertige, professionelle Produktbilder mit KI',
+  bannerImage: '/product-image.png',
+  path: '/creative-ai-tools/product-images',
+},
+{
+  name: 'KI-Produktvideos',
+  desc: 'Erstellen Sie ansprechende Produkt-Showcase-Videos mit KI',
+  bannerImage: '/product-video.png',
+  path: '/creative-ai-tools/product-videos',
+},
+{
+  name: 'Produkte mit KI-Avatar',
+  desc: 'Erwecken Sie Ihre Produkte mit KI-Avataren zum Leben',
+  bannerImage: '/product-avatar.png',
+  path: '/creative-ai-tools/product-avatar',
+},
+
 
   ]
     
   return (
     <div>
-      <h2 className='font-bold text-2xl mb-2'> Creative AI Tools</h2>
+      <h2 className='font-bold text-2xl mb-2'> Kreative KI-Tools</h2>
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
         {AiTools.map((tool,index)=>(
@@ -40,7 +41,7 @@ function AiToolsList() {
               <p className='opacity-60 mt-2'>{tool.desc}</p>
                <Link href={tool.path}>
                
-               <Button className='mt-4'>Create Now</Button>
+               <Button className='mt-4'>Jetzt erstellen</Button>
                </Link>
 
             </div>

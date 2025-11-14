@@ -14,8 +14,8 @@ function UsersAdsList() {
                         height={200}
                         className='max-w-20' 
                         />
-                        <h2>You don't have any ads created</h2>
-                        <Button> Create New Ads</Button>
+                        <h2>Sie haben keine Anzeigen erstellt.</h2>
+                        <Button> Neue Anzeigen erstellen</Button>
                 </div>
             }
 

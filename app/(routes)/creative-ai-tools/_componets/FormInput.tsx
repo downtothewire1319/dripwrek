@@ -47,7 +47,7 @@ function FormInput({ onHandleInputChange, onGenerate, loading }: Props) {
     return (
         <div>
             <div>
-                <h2 className='font-semibold'>1. Upload Product Image</h2>
+                <h2 className='font-semibold'>1. Produktbild hochladen</h2>
                 <div>
                     <label htmlFor='imageUpload' className='mt-2 border-dashed border-2 rounded-xl flex flex-col
                 p-4 items-center justify-center min-h-[200px] cursor-pointer
@@ -55,8 +55,9 @@ function FormInput({ onHandleInputChange, onGenerate, loading }: Props) {
                         {!preview ?
                             <div className='flex flex-col items-center gap-3'>
                                 <ImagePlus className='h-8 w-8 opacity-40' />
-                                <h2 className='text-xl'>Click here to upload Image</h2>
-                                <p className='opacity-45'>Upload image upto 5mb</p>
+                               <h2 className='text-xl'>Klicken Sie hier, um ein Bild hochzuladen</h2>
+<p className='opacity-45'>Bild bis zu 5 MB hochladen</p>
+
                             </div>
                             : <Image src={preview} alt='preview' width={300} height={300}
                                 className='w-full h-full max-h[200px] object-contain rounded-lg ' />}
@@ -71,7 +72,7 @@ function FormInput({ onHandleInputChange, onGenerate, loading }: Props) {
                 {/* sample product */}
 
                 <div>
-                    <h2 className='opacity-40 text-center my-5'>Select smple product to try</h2>
+                    <h2 className='opacity-40 text-center my-5'>Wählen Sie ein Produktmuster zum Ausprobieren aus.</h2>
                     <div className='flex gap-10 items-center justify-center'>
                         {sampleProducts.map((product, index) => (
 
@@ -97,9 +98,9 @@ function FormInput({ onHandleInputChange, onGenerate, loading }: Props) {
 
             </div>
             <div className='mt-8'>
-                <h2 className='font-semibold'>2. Enter Product Descritpion</h2>
+                <h2 className='font-semibold'>2. Produktbeschreibung eingeben</h2>
                 <Textarea
-                    placeholder='Tell me more about product and how you wnat to display'
+                    placeholder='Erzählen Sie mir mehr über das Produkt und wie Sie es präsentieren möchten.'
                     className='min-h-[150px] mt-2'
                     onChange={(event) => onHandleInputChange('description', event.target.value)
 
@@ -108,10 +109,10 @@ function FormInput({ onHandleInputChange, onGenerate, loading }: Props) {
                 />
             </div>
             <div className='mt-8'>
-                <h2 className='font-semibold'>3. Select Image Size</h2>
+                <h2 className='font-semibold'>3. Bildgröße auswählen</h2>
                 <Select onValueChange={(value) => onHandleInputChange('size', value)}>
                     <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Select Resolution" />
+                        <SelectValue placeholder="Auflösung auswählen" />
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="1024x1024">
@@ -157,8 +158,8 @@ function FormInput({ onHandleInputChange, onGenerate, loading }: Props) {
                     <Sparkles />
                 }
 
-                Generate</Button>
-            <h2 className='mt-1 text-sm opacity-35 text-center'> 5 Credit to Generate</h2>
+                Erzeugen</Button>
+            <h2 className='mt-1 text-sm opacity-35 text-center'> 5 Credits generieren</h2>
 
 
         </div>

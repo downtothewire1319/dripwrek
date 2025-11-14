@@ -21,18 +21,18 @@ import ProfileAvatar from './ProfileAvatar'
 
 const items = [
     {
-        title: "Home",
+        title: "Heim",
         url: "/app",
         icon: Home,
     },
     {
-        title: "Creative Tools",
+        title: "Kreative Werkzeuge",
         // url: "/creative-ai-tools",
         url: "#",
         icon: Inbox,
     },
     {
-        title: "My Ads",
+        title: "Meine Anzeigen",
         url: "#",
         icon: Megaphone,
     },
@@ -42,7 +42,7 @@ const items = [
         icon: Wallet2,
     },
     {
-        title: "Profile",
+        title: "Profil",
         url: "#",
         icon: Settings,
     },
@@ -69,7 +69,7 @@ export function AppSidebar() {
                         </div>
 
 
-                        <h2 className='text-sm text-gray-400 text-center'>Build Awesome</h2>
+                        <h2 className='text-sm text-gray-400 text-center'>AdCraft Pro</h2>
                     </div>
                 </Link>
 
@@ -99,18 +99,18 @@ export function AppSidebar() {
             <SidebarFooter>
                 {!user ?
                     <Link href={'/login'} className='w-full'>
-                        <Button className='w-full'>Sign In</Button>
+                        <Button className='w-full'>Anmelden</Button>
                     </Link>
                     :
                     <div className='flex justify-between items-center p-2 px-4 bg-zinc-800 rounded-lg'>
-                        <h2>Profile</h2>
+                        <h2>Profil</h2>
                         <ProfileAvatar />
 
                     </div>
                 }
 
 
-                <h2 className='p-2 text-gray-400 text-sm'>Copyright @Dripdesk</h2>
+                <h2 className='p-2 text-gray-400 text-sm'>Copyright @Dripwerk</h2>
             </SidebarFooter>
         </Sidebar>
     )
