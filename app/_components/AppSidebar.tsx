@@ -50,20 +50,30 @@ const items = [
 
 export function AppSidebar() {
     const path = usePathname();
-    const {user} = useAuthContext();
+    const { user } = useAuthContext();
     return (
         <Sidebar>
             <SidebarHeader>
-                
-<Link href="/">
- <div className='p-4'>
-                    <Image src={'/logodripdesk.png'} alt='logo' width={60} height={60}
-                        className='w-full h-full' />
-                    <h2 className='text-sm text-gray-400 text-center'>Build Awesome</h2>
-                </div>
-</Link>
 
-                
+                <Link href="/">
+                    <div className='p-4 flex flex-col items-center'>
+                        {/* <Image src={'/driplogo.png'} alt='logo' width={100} height={100}
+                        className='w-full h-full' /> */}
+                        <div className="relative w-32 h-32">
+                            <Image
+                                src="/driplogo.png"
+                                alt="logo"
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+
+
+                        <h2 className='text-sm text-gray-400 text-center'>Build Awesome</h2>
+                    </div>
+                </Link>
+
+
             </SidebarHeader>
             <SidebarContent>
                 <SidebarGroup>
@@ -87,16 +97,16 @@ export function AppSidebar() {
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter>
-                {!user?
-                <Link href={'/login'} className='w-full'>
-               <Button className='w-full'>Sign In</Button>
-                </Link>
-                :
-                <div className='flex justify-between items-center p-2 px-4 bg-zinc-800 rounded-lg'>
-                    <h2>Profile</h2>
-                    <ProfileAvatar/>
+                {!user ?
+                    <Link href={'/login'} className='w-full'>
+                        <Button className='w-full'>Sign In</Button>
+                    </Link>
+                    :
+                    <div className='flex justify-between items-center p-2 px-4 bg-zinc-800 rounded-lg'>
+                        <h2>Profile</h2>
+                        <ProfileAvatar />
 
-                </div>
+                    </div>
                 }
 
 
