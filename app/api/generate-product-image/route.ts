@@ -77,54 +77,54 @@ console.log(json);
 
 
     // Generate product image - CORRECTED VERSION
-    const ImageResponse = await clientOpenAi.responses.create({
-        model: 'gpt-4.1-mini',
-        // model: "gpt-image-1",
+    // const ImageResponse = await clientOpenAi.responses.create({
+    //     model: 'gpt-4.1-mini',
+    //     // model: "gpt-image-1",
 
-        max_output_tokens: 500,
-        input: [
-            {
-                role: 'user',
-                content: [
-                    {
-                        //@ts-ignore
-                        type: 'input_text',
-                        text: json?.textToImage ,
-                    },
-                    {
-                        //@ts-ignore
+    //     max_output_tokens: 500,
+    //     input: [
+    //         {
+    //             role: 'user',
+    //             content: [
+    //                 {
+    //                     //@ts-ignore
+    //                     type: 'input_text',
+    //                     text: json?.textToImage ,
+    //                 },
+    //                 {
+    //                     //@ts-ignore
 
-                        type: 'input_image',
-                        image_url: imageKitRef.url,
-                    }
-                ],
-            }
-        ],
-        tools: [
-            {
-                type: 'image_generation',
-            }
-        ]
-    });
+    //                     type: 'input_image',
+    //                     image_url: imageKitRef.url,
+    //                 }
+    //             ],
+    //         }
+    //     ],
+    //     tools: [
+    //         {
+    //             type: 'image_generation',
+    //         }
+    //     ]
+    // });
 
-    console.log(ImageResponse.output);
+    // console.log(ImageResponse.output);
 
-    const imageData = ImageResponse.output?.
-        filter((item: any) => item.type === 'image_generation_call').
-        map((item: any) => item.result);
+    // const imageData = ImageResponse.output?.
+    //     filter((item: any) => item.type === 'image_generation_call').
+    //     map((item: any) => item.result);
 
-    const generatedImage = imageData[0] //base64 image
+    // const generatedImage = imageData[0] //base64 image
 
     //upload image to imagekit
-    const uploadedImage = await imagekit.upload({
-        file: `data:image/png;base64,${generatedImage}`,
-        fileName: Date.now() + '.png',
-        isPublished: true,
-    })
+    // const uploadedImage = await imagekit.upload({
+    //     file: `data:image/png;base64,${generatedImage}`,
+    //     fileName: Date.now() + '.png',
+    //     isPublished: true,
+    // })
 
     // save to database 
 
 
-    return NextResponse.json(uploadedImage?.url);
+    // return NextResponse.json(uploadedImage?.url);
 
 }
