@@ -2,7 +2,7 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-import TattooVisionAI from "@/components/Demo";
+import TattooVisionAI from "@/components/HeroDemo";
 import TattooVisionComplete from "@/components/TattooVisionComplete"
 import TestimonialsSection from "@/components/TestimonialsSection";
 import Footer from "@/components/Footer";

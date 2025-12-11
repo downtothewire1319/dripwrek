@@ -17,7 +17,7 @@ import {
   FaBolt,
   FaTrophy,
   FaHeart
-} from 'react-icons/fa6';
+} from 'react-icons/fa';
 import Image from 'next/image';
 // Emoji-Fallback für fehlende Icons
 const EmojiIcon = ({ type, className = "" }: { type: string; className?: string }) => {
