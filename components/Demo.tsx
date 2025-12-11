@@ -35,6 +35,8 @@ import {
   FaCrown,
   FaDragon as FaDragonIcon
 } from 'react-icons/fa6';
+import { FaFeatherAlt } from 'react-icons/fa';
+
 
 interface StyleOption {
   id: string;
