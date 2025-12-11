@@ -31,7 +31,7 @@ export default function Homepage() {
 
       {/* demo */}
       {/* <TattooVisionComplete/> */}
-      {/* <TattooVisionAI/> */}
+      <TattooVisionAI/>
       <TestimonialsSection/>
       <ContactSection/>
       <Footer/>

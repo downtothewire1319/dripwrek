@@ -18,6 +18,7 @@ const FaInfoCircle = dynamic(() => import('react-icons/fa').then(mod => mod.FaIn
 
 
 import { FaDragon, FaAnchor, FaStar,  FaFeather, FaFire, FaWater, FaPalette, FaHeart, FaGem, FaLeaf, FaCloudMoon, FaSkull, FaMoon, FaCrown } from 'react-icons/fa6';
+import { FaWolf } from "react-icons/fa6";
 
 
 interface StyleOption {
@@ -174,9 +175,11 @@ const TattooVisionAI: FC = () => {
   };
 
   // Generiertes Design aktualisieren
-  const updateGeneratedDesign = (): void => {
-    const promptLower = tattooPrompt.toLowerCase();
-    let icon = FaWolf;
+ const updateGeneratedDesign = (): void => {
+  const promptLower = tattooPrompt.toLowerCase();
+  let icon = FaWolf; // now TypeScript knows what FaWolf is
+  // your other logic here
+
     
     if (promptLower.includes('drache')) {
       icon = FaDragon;
