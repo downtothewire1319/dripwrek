@@ -1,24 +1,31 @@
 'use client';
-import React, { useState, useRef, useEffect, FC, use } from 'react';
-import dynamic from 'next/dynamic';
-
-// Dynamisch importierte Icons für bessere Performance
-const FaRobot = dynamic(() => import('react-icons/fa').then(mod => mod.FaRobot), { ssr: false });
-const FaMagic = dynamic(() => import('react-icons/fa').then(mod => mod.FaMagic), { ssr: false });
-const FaPaintBrush = dynamic(() => import('react-icons/fa').then(mod => mod.FaPaintBrush), { ssr: false });
-const FaShapes = dynamic(() => import('react-icons/fa').then(mod => mod.FaShapes), { ssr: false });
-const FaDownload = dynamic(() => import('react-icons/fa').then(mod => mod.FaDownload), { ssr: false });
-const FaClock = dynamic(() => import('react-icons/fa').then(mod => mod.FaClock), { ssr: false });
-const FaLightbulb = dynamic(() => import('react-icons/fa').then(mod => mod.FaLightbulb), { ssr: false });
-const FaSpinner = dynamic(() => import('react-icons/fa').then(mod => mod.FaSpinner), { ssr: false });
-const FaCheck = dynamic(() => import('react-icons/fa').then(mod => mod.FaCheck), { ssr: false });
-const FaTimes = dynamic(() => import('react-icons/fa').then(mod => mod.FaTimes), { ssr: false });
-const FaInfoCircle = dynamic(() => import('react-icons/fa').then(mod => mod.FaInfoCircle), { ssr: false });
-
-
-
-import { FaDragon, FaAnchor, FaStar,  FaFeather, FaFire, FaWater, FaPalette, FaHeart, FaGem, FaLeaf, FaCloudMoon, FaSkull, FaMoon, FaCrown } from 'react-icons/fa6';
-import { FaWolf } from "react-icons/fa6";
+import React, { useState, useRef, useEffect, FC } from 'react';
+import {
+  FaDragon,
+  FaAnchor,
+  FaStar,
+  FaFeather,
+  FaFire,
+  FaWater,
+  FaPalette,
+  FaHeart,
+  FaGem,
+  FaLeaf,
+  FaCloudMoon,
+  FaSkull,
+  FaMoon,
+  FaCrown,
+  FaPenFancy, // replaced FaPaintBrush
+  FaRobot,
+  FaMagic,
+  FaDownload,
+  FaClock,
+  FaLightbulb,
+  FaSpinner,
+  FaInfoCircle
+} from 'react-icons/fa6';
+import { FaCircleInfo } from 'react-icons/fa6';
+import { FaCheck, FaX } from 'react-icons/fa6';
 
 
 interface StyleOption {
@@ -51,8 +58,9 @@ interface PricingPlan {
 }
 
 const TattooVisionAI: FC = () => {
-  // State für die Demo
-  const [tattooPrompt, setTattooPrompt] = useState<string>('Ein mystischer Wolf, der zum Mond heult, mit geometrischen Mustern');
+  const [tattooPrompt, setTattooPrompt] = useState<string>(
+    'Ein mystischer Wolf, der zum Mond heult, mit geometrischen Mustern'
+  );
   const [selectedStyle, setSelectedStyle] = useState<string>('geometric');
   const [complexity, setComplexity] = useState<number>(3);
   const [isGenerating, setIsGenerating] = useState<boolean>(false);
@@ -60,32 +68,28 @@ const TattooVisionAI: FC = () => {
   const [showGeneratedDesign, setShowGeneratedDesign] = useState<boolean>(false);
   const [generationTime, setGenerationTime] = useState<string>('0');
   const [generatedText, setGeneratedText] = useState<string>('');
-  const [TattooIcon, setTattooIcon] = useState<React.ComponentType<{ className?: string }>>(() => FaDragon); // replace with a valid icon
+  const [TattooIcon, setTattooIcon] = useState<React.ComponentType<{ className?: string }>>(
+    FaDragon
+  );
 
-  
-  // State für Pricing
   const [isYearly, setIsYearly] = useState<boolean>(false);
   const [activePlan, setActivePlan] = useState<string | null>(null);
-  
-  // Referenz für Progress-Interval
+
   const progressIntervalRef = useRef<NodeJS.Timeout | null>(null);
-  
-  // Beispiel-Prompts
+
   const examplePrompts: ExamplePrompt[] = [
     { text: 'Japanischer Drache mit Wellen', icon: FaDragon, style: 'japanese' },
     { text: 'Blumen-Ärmel mit Rosen und Dornen', icon: FaHeart, style: 'watercolor' },
     { text: 'Geometrischer Löwe mit Mandala-Mustern', icon: FaCrown, style: 'geometric' }
   ];
-  
-  // Style-Optionen
+
   const styleOptions: StyleOption[] = [
     { id: 'traditional', name: 'Traditional', icon: FaAnchor, color: 'text-purple-400' },
-    { id: 'watercolor', name: 'Watercolor', icon: FaPaintBrush, color: 'text-blue-400' },
-    { id: 'geometric', name: 'Geometrisch', icon: FaShapes, color: 'text-green-400' },
+    { id: 'watercolor', name: 'Watercolor', icon: FaPenFancy, color: 'text-blue-400' }, // fixed
+    { id: 'geometric', name: 'Geometrisch', icon: FaCrown, color: 'text-green-400' },
     { id: 'japanese', name: 'Japanisch', icon: FaDragon, color: 'text-red-400' }
   ];
-  
-  // Pricing-Pläne
+
   const pricingPlans: PricingPlan[] = [
     {
       id: 'starter',
@@ -140,7 +144,6 @@ const TattooVisionAI: FC = () => {
     }
   ];
 
-  // Tattoo generieren
   const generateTattoo = (): void => {
     if (!tattooPrompt.trim()) {
       alert('Bitte gib eine Tattoo-Beschreibung ein');
@@ -151,22 +154,16 @@ const TattooVisionAI: FC = () => {
     setShowGeneratedDesign(false);
     setGenerationProgress(0);
 
-    // Fortschrittsbalken simulieren
     progressIntervalRef.current = setInterval(() => {
       setGenerationProgress(prev => {
         const newProgress = prev + Math.random() * 15;
         if (newProgress >= 100) {
-          if (progressIntervalRef.current) {
-            clearInterval(progressIntervalRef.current);
-          }
-          
-          // Design generieren
+          if (progressIntervalRef.current) clearInterval(progressIntervalRef.current);
           setTimeout(() => {
             setIsGenerating(false);
             setShowGeneratedDesign(true);
             updateGeneratedDesign();
           }, 300);
-          
           return 100;
         }
         return newProgress;
@@ -174,62 +171,48 @@ const TattooVisionAI: FC = () => {
     }, 100);
   };
 
-  // Generiertes Design aktualisieren
- const updateGeneratedDesign = (): void => {
-  const promptLower = tattooPrompt.toLowerCase();
-  let icon = FaWolf; // now TypeScript knows what FaWolf is
-  // your other logic here
+  const updateGeneratedDesign = (): void => {
+    const promptLower = tattooPrompt.toLowerCase();
+    let icon: React.ComponentType<{ className?: string }> = FaCrown;
 
-    
-    if (promptLower.includes('drache')) {
-      icon = FaDragon;
-    } else if (promptLower.includes('rose') || promptLower.includes('blume') || promptLower.includes('blüte') || promptLower.includes('floral')) {
-      icon = FaHeart;
-    } else if (promptLower.includes('schädel')) {
-      icon = FaSkull;
-    } else if (promptLower.includes('mond') || promptLower.includes('stern')) {
-      icon = FaMoon;
-    } else if (promptLower.includes('edelstein') || promptLower.includes('diamant')) {
-      icon = FaGem;
-    } else if (promptLower.includes('blatt') || promptLower.includes('natur')) {
-      icon = FaLeaf;
-    } else if (promptLower.includes('wolke') || promptLower.includes('himmel')) {
-      icon = FaCloudMoon;
-    }
-    
+    if (promptLower.includes('drache')) icon = FaDragon;
+    else if (promptLower.includes('rose') || promptLower.includes('blume')) icon = FaHeart;
+    else if (promptLower.includes('schädel')) icon = FaSkull;
+    else if (promptLower.includes('mond') || promptLower.includes('stern')) icon = FaMoon;
+    else if (promptLower.includes('edelstein') || promptLower.includes('diamant')) icon = FaGem;
+    else if (promptLower.includes('blatt') || promptLower.includes('natur')) icon = FaLeaf;
+    else if (promptLower.includes('wolke') || promptLower.includes('himmel')) icon = FaCloudMoon;
+
     setTattooIcon(() => icon);
-    setGeneratedText(tattooPrompt.length > 30 ? tattooPrompt.substring(0, 30) + '...' : tattooPrompt);
+    setGeneratedText(
+      tattooPrompt.length > 30 ? tattooPrompt.substring(0, 30) + '...' : tattooPrompt
+    );
     setGenerationTime((Math.random() * 2 + 1.5).toFixed(1));
   };
 
-  // Beispiel laden
   const loadExample = (example: ExamplePrompt): void => {
     setTattooPrompt(example.text);
     setSelectedStyle(example.style);
   };
 
-  // Design herunterladen
   const downloadDesign = (): void => {
-    alert('In der Vollversion würde dies dein hochauflösendes Tattoo-Design herunterladen. Teste unseren Pro-Plan für unbegrenzte Downloads!');
+    alert(
+      'In der Vollversion würde dies dein hochauflösendes Tattoo-Design herunterladen. Teste unseren Pro-Plan für unbegrenzte Downloads!'
+    );
   };
 
-  // Plan auswählen
   const selectPlan = (planId: string): void => {
     setActivePlan(planId);
-    alert(`Du hast den ${planId}-Plan ausgewählt! In einer echten Implementierung würde dies zur Kasse weiterleiten.`);
+    alert(`Du hast den ${planId}-Plan ausgewählt!`);
   };
 
-  // Kostenlose Testphase starten
   const startFreeTrial = (): void => {
-    alert('Starte deine 7-tägige kostenlose Testphase des Pro-Plans! In einer echten Implementierung würde dies ein Konto erstellen.');
+    alert('Starte deine 7-tägige kostenlose Testphase des Pro-Plans!');
   };
 
-  // Cleanup bei Unmount
   useEffect(() => {
     return () => {
-      if (progressIntervalRef.current) {
-        clearInterval(progressIntervalRef.current);
-      }
+      if (progressIntervalRef.current) clearInterval(progressIntervalRef.current);
     };
   }, []);
 
@@ -426,7 +409,7 @@ const TattooVisionAI: FC = () => {
           
           <div className="text-center mt-12 text-gray-500">
             <p>
-              <FaInfoCircle className="inline mr-2" />
+               <FaCircleInfo className="inline mr-2" />
               Die Demo generiert Vorschaudesigns. Für hochauflösende, anpassbare Designs siehe unsere Preispläne.
             </p>
           </div>
@@ -514,7 +497,7 @@ const TattooVisionAI: FC = () => {
                         {feature.included ? (
                           <FaCheck className="text-green-500 mr-3 mt-1" />
                         ) : (
-                          <FaTimes className="text-gray-600 mr-3 mt-1" />
+                          <FaX className="text-gray-600 mr-3 mt-1" />
                         )}
                         <span className={feature.included ? '' : 'opacity-50'}>{feature.text}</span>
                       </li>
