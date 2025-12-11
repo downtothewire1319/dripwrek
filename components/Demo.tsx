@@ -32,7 +32,7 @@ import {
   FaWolf,
   FaSkull,
   FaMoon,
-  FaCrown,FaFeather,
+  FaCrown,
   FaDragon as FaDragonIcon
 } from 'react-icons/fa6';
 

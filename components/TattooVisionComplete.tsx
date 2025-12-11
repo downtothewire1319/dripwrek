@@ -26,7 +26,6 @@ import {
   FaTrophy,
   FaHeart
 } from 'react-icons/fa';
-import { FaPlayCircle } from "react-icons/fa6";
 import Image from 'next/image';
 // Emoji-Fallback für fehlende Icons
 const EmojiIcon = ({ type, className = "" }: { type: string; className?: string }) => {
@@ -267,7 +266,7 @@ const TattooVisionComplete = () => {
                   Kostenlose Demo testen
                 </button>
                 <button className="px-8 py-4 rounded-full border-2 border-purple-600 hover:bg-purple-900/20 font-medium text-lg transition-colors duration-300 flex items-center justify-center">
-                  <FaPlayCircle className="mr-3" />
+                  <FaTrophy className="mr-3" />
                   Video ansehen
                 </button>
               </div>
