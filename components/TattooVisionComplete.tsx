@@ -26,7 +26,6 @@ import {
   FaTrophy,
   FaHeart
 } from 'react-icons/fa';
-import { FaPlayCircle } from "react-icons/fa";
 import Image from 'next/image';
 // Emoji-Fallback für fehlende Icons
 const EmojiIcon = ({ type, className = "" }: { type: string; className?: string }) => {
