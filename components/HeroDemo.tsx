@@ -15,26 +15,9 @@ const FaCheck = dynamic(() => import('react-icons/fa').then(mod => mod.FaCheck),
 const FaTimes = dynamic(() => import('react-icons/fa').then(mod => mod.FaTimes), { ssr: false });
 const FaInfoCircle = dynamic(() => import('react-icons/fa').then(mod => mod.FaInfoCircle), { ssr: false });
 
-// ODER: Verwende Fa6 Icons (empfohlen für neuere Projekte)
-import { 
-  FaDragon,
-  FaAnchor,
-  FaStar,
-  FaPlayCircle,
-  FaFeather,
-  FaFire,
-  FaWater,
-  FaPalette,
-  FaHeart,
-  FaGem,
-  FaLeaf,
-  FaCloudMoon,
-  FaWolf,
-  FaSkull,
-  FaMoon,
-  FaCrown,
-  FaDragon as FaDragonIcon
-} from 'react-icons/fa6';
+
+
+import { FaDragon, FaAnchor, FaStar,  FaFeather, FaFire, FaWater, FaPalette, FaHeart, FaGem, FaLeaf, FaCloudMoon, FaSkull, FaMoon, FaCrown } from 'react-icons/fa6';
 
 
 interface StyleOption {
@@ -76,7 +59,8 @@ const TattooVisionAI: FC = () => {
   const [showGeneratedDesign, setShowGeneratedDesign] = useState<boolean>(false);
   const [generationTime, setGenerationTime] = useState<string>('0');
   const [generatedText, setGeneratedText] = useState<string>('');
-  const [TattooIcon, setTattooIcon] = useState<React.ComponentType<{ className?: string }>>(() => FaWolf);
+  const [TattooIcon, setTattooIcon] = useState<React.ComponentType<{ className?: string }>>(() => FaDragon); // replace with a valid icon
+
   
   // State für Pricing
   const [isYearly, setIsYearly] = useState<boolean>(false);
@@ -87,7 +71,7 @@ const TattooVisionAI: FC = () => {
   
   // Beispiel-Prompts
   const examplePrompts: ExamplePrompt[] = [
-    { text: 'Japanischer Drache mit Wellen', icon: FaDragonIcon, style: 'japanese' },
+    { text: 'Japanischer Drache mit Wellen', icon: FaDragon, style: 'japanese' },
     { text: 'Blumen-Ärmel mit Rosen und Dornen', icon: FaHeart, style: 'watercolor' },
     { text: 'Geometrischer Löwe mit Mandala-Mustern', icon: FaCrown, style: 'geometric' }
   ];
@@ -195,7 +179,7 @@ const TattooVisionAI: FC = () => {
     let icon = FaWolf;
     
     if (promptLower.includes('drache')) {
-      icon = FaDragonIcon;
+      icon = FaDragon;
     } else if (promptLower.includes('rose') || promptLower.includes('blume') || promptLower.includes('blüte') || promptLower.includes('floral')) {
       icon = FaHeart;
     } else if (promptLower.includes('schädel')) {
