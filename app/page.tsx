@@ -30,7 +30,7 @@ export default function Homepage() {
       </div >
 
       {/* demo */}
-      {/* <TattooVisionComplete/> */}
+      <TattooVisionComplete/>
       <TattooVisionAI/>
       <TestimonialsSection/>
       <ContactSection/>
