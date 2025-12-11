@@ -17,15 +17,14 @@ import {
   FaCrown,
   FaPenFancy, // replaced FaPaintBrush
   FaRobot,
-  FaMagic,
   FaDownload,
   FaClock,
   FaLightbulb,
   FaSpinner,
-  FaInfoCircle
 } from 'react-icons/fa6';
 import { FaCircleInfo } from 'react-icons/fa6';
 import { FaCheck, FaX } from 'react-icons/fa6';
+
 
 
 interface StyleOption {

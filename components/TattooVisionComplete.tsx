@@ -4,7 +4,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { 
   FaRobot, 
-  FaMagic, 
+   
   FaDownload, 
   FaBars,
   FaTimes as FaClose,
@@ -18,6 +18,7 @@ import {
   FaTrophy,
   FaHeart
 } from 'react-icons/fa';
+import { FaWandMagic } from 'react-icons/fa6';
 import Image from 'next/image';
 // Emoji-Fallback für fehlende Icons
 const EmojiIcon = ({ type, className = "" }: { type: string; className?: string }) => {
@@ -254,7 +255,7 @@ const TattooVisionComplete = () => {
                   onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
                   className="px-8 py-4 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 font-bold text-lg transition-all duration-300 shadow-2xl hover:shadow-3xl hover:shadow-purple-500/40 flex items-center justify-center"
                 >
-                  <FaMagic className="mr-3" />
+                  <FaWandMagic className="mr-3" />
                   Kostenlose Demo testen
                 </button>
                 <button className="px-8 py-4 rounded-full border-2 border-purple-600 hover:bg-purple-900/20 font-medium text-lg transition-colors duration-300 flex items-center justify-center">
@@ -404,7 +405,7 @@ const TattooVisionComplete = () => {
                 onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
                 className="group px-12 py-6 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 font-bold text-xl transition-all duration-300 shadow-2xl hover:shadow-3xl hover:shadow-purple-500/40 flex items-center justify-center"
               >
-                <FaMagic className="mr-3 group-hover:rotate-12 transition-transform" />
+                <FaWandMagic className="mr-3 group-hover:rotate-12 transition-transform" />
                 Kostenlose Demo testen
               </button>
               <button className="px-12 py-6 rounded-full border-2 border-purple-600 hover:bg-purple-900/30 font-medium text-xl transition-colors duration-300 flex items-center justify-center">
