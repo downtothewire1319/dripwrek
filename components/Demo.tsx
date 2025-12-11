@@ -32,10 +32,9 @@ import {
   FaWolf,
   FaSkull,
   FaMoon,
-  FaCrown,
+  FaCrown,FaFeather,
   FaDragon as FaDragonIcon
 } from 'react-icons/fa6';
-import { FaFeatherAlt } from 'react-icons/fa';
 
 
 interface StyleOption {
@@ -342,7 +341,7 @@ const TattooVisionAI: FC = () => {
                       {!showGeneratedDesign && !isGenerating && (
                         <div className="text-center p-6">
                           <div className="w-20 h-20 rounded-full bg-gradient-to-r from-purple-900/30 to-blue-900/30 flex items-center justify-center mx-auto mb-6">
-                            <FaFeatherAlt className="text-3xl text-gray-500" />
+                            <FaFeather className="text-3xl text-gray-500" />
                           </div>
                           <h4 className="text-xl font-bold mb-2">Hier erscheint dein Design</h4>
                           <p className="text-gray-500">
